@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de AHOUANDJINOU Asaph Néri Michaël — Technicien Supérieur de Maintenance Biomédicale">
+  <meta name="author" content="AHOUANDJINOU Asaph Néri Michaël">
+
+  <title>AHOUANDJINOU Asaph — Portfolio Biomédical</title>
+
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Feuille de styles principale -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">A.N.M</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"          data-i18n="nav_about">À propos</a></li>
+      <li><a href="#skills"         data-i18n="nav_skills">Compétences</a></li>
+      <li><a href="#projects"       data-i18n="nav_projects">Projets</a></li>
+      <li><a href="#certifications" data-i18n="nav_certs">Certifications</a></li>
+      <li><a href="#contact"        data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="lang-btn" id="langBtn">🌐 EN</button>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ MENU MOBILE ═════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"          onclick="toggleMenu()" data-i18n="nav_about">À propos</a>
+    <a href="#skills"         onclick="toggleMenu()" data-i18n="nav_skills">Compétences</a>
+    <a href="#projects"       onclick="toggleMenu()" data-i18n="nav_projects">Projets</a>
+    <a href="#certifications" onclick="toggleMenu()" data-i18n="nav_certs">Certifications</a>
+    <a href="#contact"        onclick="toggleMenu()" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <!-- ══ HERO ════════════════════════════════════════════ -->
+  <section class="hero" id="about">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+
+    <div class="hero-content">
+      <!-- Texte -->
+      <div class="hero-text reveal">
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">Technicien Supérieur Biomédical</div>
+        <h1>AHOUANDJINOU<br><span class="accent">Asaph Néri</span></h1>
+        <p class="hero-title-role" data-i18n="hero_role">Technicien Supérieur de Maintenance Biomédicale</p>
+        <p class="hero-bio" data-i18n="hero_bio">
+          Passionné par l'intersection de la technologie et de la santé, je conçois,
+          répare et optimise les équipements médicaux. De la conception PCB à l'impression 3D,
+          je transforme des idées en solutions biomédicales concrètes.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary"   data-i18n="hero_cta1">Voir mes projets →</a>
+          <a href="#contact"  class="btn-secondary" data-i18n="hero_cta2">Me contacter</a>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="hero-photo-wrap reveal">
+        <div class="hero-photo-deco"></div>
+        <div class="hero-photo-frame">
+          <img src="profile.jpg" alt="Asaph Néri Michaël AHOUANDJINOU">
+        </div>
+        <!-- 
+        <div class="hero-stats">
+          <div class="hero-stats-num">4+</div>
+          <div class="hero-stats-label" data-i18n="stats_label">ans d'expérience</div>
+        </div> 
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMPÉTENCES ═════════════════════════════════════ -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag"   data-i18n="skills_tag">— Expertise</div>
+        <h2 class="section-title">
+          <span data-i18n="skills_title1">Compétences</span>
+          <span class="italic" data-i18n="skills_title2">& outils</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-wrench"></i></div>
+          <div class="skill-name" data-i18n="sk1_name">Maintenance Biomédicale</div>
+          <div class="skill-desc" data-i18n="sk1_desc">Diagnostic, réparation et maintenance préventive des équipements médicaux hospitaliers.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">ECG</span>
+            <span class="skill-tag">Moniteurs</span>
+            <span class="skill-tag">Radiologie</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+          <div class="skill-name" data-i18n="sk2_name">Conception PCB & Électronique</div>
+          <div class="skill-desc" data-i18n="sk2_desc">Design de circuits imprimés, prototypage électronique et assemblage de cartes PCB.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">KiCad</span>
+            <span class="skill-tag">Prototypage</span>
+            <span class="skill-tag">CNC</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-cube"></i></div>
+          <div class="skill-name" data-i18n="sk3_name">Modélisation & Impression 3D</div>
+          <div class="skill-desc" data-i18n="sk3_desc">Conception CAO et fabrication additive pour pièces médicales et boîtiers sur mesure.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Fusion 360</span>
+            <span class="skill-tag">FDM</span>
+            <span class="skill-tag">CAO</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="skill-name" data-i18n="sk4_name">Programmation & IoT</div>
+          <div class="skill-desc" data-i18n="sk4_desc">Développement embarqué, acquisition de données et systèmes de monitoring connectés.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">Datalogger</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+          <div class="skill-name" data-i18n="sk5_name">Gestion des équipements</div>
+          <div class="skill-desc" data-i18n="sk5_desc">Planification des maintenances, documentation technique et gestion du parc biomédical.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GMAO</span>
+            <span class="skill-tag">Normes</span>
+            <span class="skill-tag">Qualité</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- fraise / end mill -->
+              <rect x="9" y="2" width="6" height="4" rx="1"/>
+              <rect x="10" y="6" width="4" height="10" rx="1"/>
+              <path d="M10 16 L8 22 M14 16 L16 22 M11 16 L11 22 M13 16 L13 22"/>
+              <line x1="8" y1="8" x2="10" y2="8"/>
+              <line x1="8" y1="11" x2="10" y2="11"/>
+              <line x1="8" y1="14" x2="10" y2="14"/>
+            </svg>
+          </div>
+          <div class="skill-name" data-i18n="sk6_name">Usinage & Découpe</div>
+          <div class="skill-desc" data-i18n="sk6_desc">Gravure et découpe laser/CNC pour fabrication de pièces et boîtiers d'instruments.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Laser</span>
+            <span class="skill-tag">Acrylique</span>
+            <span class="skill-tag">CNC</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJETS ══════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag"   data-i18n="projects_tag">— Réalisations</div>
+        <h2 class="section-title">
+          <span data-i18n="projects_title1">Mes</span>
+          <span class="italic" data-i18n="projects_title2">projets</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Onglets -->
+      <div class="projects-tabs reveal">
+        <button class="tab-btn active" data-tab="rendus" data-i18n="tab_rendus">Rendus 3D</button>
+        <button class="tab-btn"        data-tab="pcb"    data-i18n="tab_pcb">PCB & CNC</button>
+        <button class="tab-btn"        data-tab="print"  data-i18n="tab_print">Impressions 3D</button>
+      </div>
+
+      <!-- Panneaux -->
+      <div id="tab-rendus" class="tab-panel active">
+        <div class="project-grid" id="grid-rendus"></div>
+      </div>
+      <div id="tab-pcb" class="tab-panel">
+        <div class="project-grid" id="grid-pcb"></div>
+      </div>
+      <div id="tab-print" class="tab-panel">
+        <div class="project-grid" id="grid-print"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CERTIFICATIONS ══════════════════════════════════ -->
+  <section id="certifications">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag"   data-i18n="certs_tag">— Formation</div>
+        <h2 class="section-title">
+          <span data-i18n="certs_title1">Certifications</span>
+          <span class="italic" data-i18n="certs_title2">& diplômes</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="certs-grid">
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert1_name">Fusion 360 — Modélisation 3D</div>
+            <div class="cert-issuer">Udemy</div>
+            <div class="cert-year"   data-i18n="cert1_year">Certification professionnelle</div>
+            <a href="certification_Udemy_Fusion360.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir le certificat</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-microchip"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert2_name">KiCad — Conception PCB</div>
+            <div class="cert-issuer">Udemy</div>
+            <div class="cert-year"   data-i18n="cert2_year">Certification professionnelle</div>
+            <a href="certification_udemy_kicad.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir le certificat</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert3_name">Python for Developers</div>
+            <div class="cert-issuer">Certification</div>
+            <div class="cert-year"   data-i18n="cert3_year">Développement logiciel</div>
+            <a href="Python_for_developpors_myCertificate.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir le certificat</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert4_name">Licence Professionnelle — Maintenance Biomédicale</div>
+            <div class="cert-issuer">EPAC / Université d'Abomey-Calavi</div>
+            <div class="cert-year"   data-i18n="cert4_year">Option : Maintenance Biomédicale et Hospitalière</div>
+            <a href="attestation_licence_EPAC.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir l'attestation</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag"   data-i18n="contact_tag">— Collaboration</div>
+        <h2 class="section-title">
+          <span data-i18n="contact_title1">Travaillons</span>
+          <span class="italic" data-i18n="contact_title2">ensemble</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="contact-wrap">
+        <!-- Infos -->
+        <div class="contact-text reveal">
+          <p data-i18n="contact_desc">
+            Vous avez un projet biomédical, besoin de maintenance d'équipements ou souhaitez collaborer ?
+            Je suis disponible pour des missions freelance, des postes en entreprise ou des partenariats.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:asaphahouandjinou@gmail.com" class="contact-link">
+              <span class="contact-link-icon"><i class="fa-solid fa-envelope"></i></span>
+              <span data-i18n="contact_email">asaphahouandjinou@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/asaph-ahouandjinou" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon"><i class="fa-brands fa-linkedin"></i></span>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" class="contact-link">
+              <span class="contact-link-icon"><i class="fa-solid fa-location-dot"></i></span>
+              <span>Abomey-Calavi, Bénin</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="contact-form reveal">
+          <div class="form-group">
+            <label for="fname" data-i18n="form_name">Nom complet</label>
+            <input type="text"  id="fname"  data-i18n-placeholder="form_name_ph"  placeholder="Votre nom...">
+          </div>
+          <div class="form-group">
+            <label for="femail" data-i18n="form_email">Email</label>
+            <input type="email" id="femail" data-i18n-placeholder="form_email_ph" placeholder="votre@email.com">
+          </div>
+          <div class="form-group">
+            <label for="fmsg" data-i18n="form_msg">Message</label>
+            <textarea id="fmsg" data-i18n-placeholder="form_msg_ph" placeholder="Décrivez votre projet..."></textarea>
+          </div>
+          <button class="form-btn" onclick="sendMsg()" data-i18n="form_send">Envoyer le message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════ -->
+  <footer>
+    <p data-i18n="footer_text">
+      © 2026 AHOUANDJINOU Asaph Néri Michaël — Technicien Supérieur de Maintenance Biomédicale
+    </p>
+  </footer>
+
+  <!-- ══ LIGHTBOX ═════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ══ SCRIPTS ══════════════════════════════════════════ -->
+  <!-- Ordre important : i18n → projects → main -->
+  <script src="i18n.js"></script>
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
