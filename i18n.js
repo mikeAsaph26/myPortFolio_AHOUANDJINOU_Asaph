@@ -21,7 +21,6 @@ const i18n = {
     hero_bio:       "Passionné par l'intersection de la technologie et de la santé, je conçois, répare et optimise les équipements médicaux. De la conception PCB à l'impression 3D, je transforme des idées en solutions biomédicales concrètes.",
     hero_cta1:      "Voir mes projets →",
     hero_cta2:      "Me contacter",
-    stats_label:    "ans d'expérience",
 
     /* Skills section */
     skills_tag:     "— Expertise",
@@ -48,6 +47,9 @@ const i18n = {
     tab_rendus:      "Rendus 3D",
     tab_pcb:         "PCB & CNC",
     tab_print:       "Impressions 3D",
+    cat_all:         "Tous",
+    cat_medical:     "Équipements électroniques & médicaux",
+    cat_autres:      "Autres",
     label_rendus:    "Rendu 3D",
     label_pcb:       "PCB & CNC",
     label_print:     "Impression 3D",
@@ -66,6 +68,15 @@ const i18n = {
     cert4_name: "Licence Professionnelle en Maintenance Biomédicale",
     cert4_issuer: "EPAC / Université d'Abomey-Calavi",
     cert4_year: "Option : Maintenance Biomédicale et Hospitalière",
+    cert5_name:   "Python Programming Fundamentals",
+    cert5_issuer: "DataCamp",
+    cert5_year:   "Programmation Python — 13 h (oct. 2026)",
+    cert6_name:   "Python Toolbox",
+    cert6_issuer: "DataCamp",
+    cert6_year:   "Programmation Python — 4 h (oct. 2026)",
+    cert7_name:   "Camp d'Innovation Low-Tech",
+    cert7_issuer: "IROKO FABLAB / UniPod / PNUD Bénin",
+    cert7_year:   "Porteur du projet Lumicheck Neo — Porto-Novo, mars 2025",
 
     /* Contact */
     contact_tag:    "— Collaboration",
@@ -102,7 +113,6 @@ const i18n = {
     hero_bio:       "Passionate about the intersection of technology and healthcare, I design, repair, and optimize medical equipment. From PCB design to 3D printing, I turn ideas into tangible biomedical solutions.",
     hero_cta1:      "View my projects →",
     hero_cta2:      "Contact me",
-    stats_label:    "years experience",
 
     /* Skills section */
     skills_tag:     "— Expertise",
@@ -129,6 +139,9 @@ const i18n = {
     tab_rendus:      "3D Renders",
     tab_pcb:         "PCB & CNC",
     tab_print:       "3D Prints",
+    cat_all:         "All",
+    cat_medical:     "Electronic & medical equipment",
+    cat_autres:      "Other",
     label_rendus:    "3D Render",
     label_pcb:       "PCB & CNC",
     label_print:     "3D Print",
@@ -147,6 +160,15 @@ const i18n = {
     cert4_name:   "Professional Bachelor's in Biomedical Maintenance",
     cert4_issuer: "EPAC / University of Abomey-Calavi",
     cert4_year:   "Option: Biomedical & Hospital Maintenance",
+    cert5_name:   "Python Programming Fundamentals",
+    cert5_issuer: "DataCamp",
+    cert5_year:   "Python programming — 13 hrs (Oct 2026)",
+    cert6_name:   "Python Toolbox",
+    cert6_issuer: "DataCamp",
+    cert6_year:   "Python programming — 4 hrs (Oct 2026)",
+    cert7_name:   "Low-Tech Innovation Camp",
+    cert7_issuer: "IROKO FABLAB / UniPod / UNDP Benin",
+    cert7_year:   "Innovation lead on the Lumicheck Neo project — Porto-Novo, March 2025",
 
     /* Contact */
     contact_tag:    "— Collaboration",

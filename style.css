@@ -333,31 +333,6 @@ h1 .accent {
   opacity: 0.5;
 }
 
-.hero-stats {
-  position: absolute;
-  bottom: -20px;
-  left: -20px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 20px;
-  box-shadow: var(--shadow);
-}
-
-.hero-stats-num {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent);
-  font-family: 'Instrument Serif', serif;
-}
-
-.hero-stats-label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
 /* ── Sections (general) ────────────────────────────────── */
 section {
   padding: 100px 5%;
@@ -834,7 +809,6 @@ footer {
 
 @media (max-width: 600px) {
   section           { padding: 70px 5%; }
-  .hero-stats       { left: 0; bottom: -16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -893,4 +867,37 @@ footer {
 .skill-icon svg {
   color: var(--accent);
   stroke: var(--accent);
+}
+
+/* ── Filtres de catégorie (Rendus 3D) ────────────────── */
+.cat-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.cat-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 6px 16px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.cat-btn:hover:not(.active) {
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+.cat-btn.active {
+  background: rgba(79, 142, 247, 0.15);
+  border-color: var(--accent2);
+  color: var(--accent2);
+  font-weight: 600;
 }

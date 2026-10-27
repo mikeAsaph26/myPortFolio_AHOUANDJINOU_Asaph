@@ -22,7 +22,7 @@
 
   <!-- ══ NAVIGATION ══════════════════════════════════════ -->
   <nav id="navbar">
-    <div class="nav-logo">A.N.M</div>
+    <div class="nav-logo">A.A.N.M</div>
 
     <ul class="nav-links" id="navLinks">
       <li><a href="#about"          data-i18n="nav_about">À propos</a></li>
@@ -77,13 +77,6 @@
         <div class="hero-photo-frame">
           <img src="profile.jpg" alt="Asaph Néri Michaël AHOUANDJINOU">
         </div>
-        <!-- 
-        <div class="hero-stats">
-          <div class="hero-stats-num">4+</div>
-          <div class="hero-stats-label" data-i18n="stats_label">ans d'expérience</div>
-        </div> 
-        -->
-
       </div>
     </div>
   </section>
@@ -203,6 +196,11 @@
 
       <!-- Panneaux -->
       <div id="tab-rendus" class="tab-panel active">
+        <div class="cat-filters" id="catFilters">
+          <button class="cat-btn active" data-cat="all"     data-i18n="cat_all">Tous</button>
+          <button class="cat-btn"        data-cat="medical" data-i18n="cat_medical">Équipements électroniques & médicaux</button>
+          <button class="cat-btn"        data-cat="autres"  data-i18n="cat_autres">Autres</button>
+        </div>
         <div class="project-grid" id="grid-rendus"></div>
       </div>
       <div id="tab-pcb" class="tab-panel">
@@ -262,9 +260,39 @@
           <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
           <div class="cert-info">
             <div class="cert-name"   data-i18n="cert4_name">Licence Professionnelle — Maintenance Biomédicale</div>
-            <div class="cert-issuer">EPAC / Université d'Abomey-Calavi</div>
+            <div class="cert-issuer" data-i18n="cert4_issuer">EPAC / Université d'Abomey-Calavi</div>
             <div class="cert-year"   data-i18n="cert4_year">Option : Maintenance Biomédicale et Hospitalière</div>
-            <a href="attestation_licence_EPAC.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir l'attestation</a>
+            <a href="attestation_licence_EPAC_originale.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir l'attestation</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert5_name"></div>
+            <div class="cert-issuer" data-i18n="cert5_issuer"></div>
+            <div class="cert-year"   data-i18n="cert5_year"></div>
+            <a href="DataCamp_Python_Programming_Fundamentals.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir le certificat</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert6_name"></div>
+            <div class="cert-issuer" data-i18n="cert6_issuer"></div>
+            <div class="cert-year"   data-i18n="cert6_year"></div>
+            <a href="DataCamp_Python_Toolbox.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir le certificat</a>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="cert-info">
+            <div class="cert-name"   data-i18n="cert7_name"></div>
+            <div class="cert-issuer" data-i18n="cert7_issuer"></div>
+            <div class="cert-year"   data-i18n="cert7_year"></div>
+            <a href="Attestation_Camp_Innovation_LowTech.pdf" target="_blank" class="cert-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Voir l'attestation</a>
           </div>
         </div>
 

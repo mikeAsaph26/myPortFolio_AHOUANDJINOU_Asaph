@@ -5,6 +5,7 @@
 
 /* ── État global ──────────────────────────────────────────── */
 let currentLang = 'fr';
+let currentCat  = 'all';   // filtre actif de l'onglet Rendus 3D
 
 /* ── i18n ─────────────────────────────────────────────────── */
 
@@ -65,21 +66,26 @@ function niceName(fname) {
     .replace(/([a-z])([A-Z])/g, '$1 $2'); // camelCase → mots
 }
 
+/** Nom du projet dans la langue courante (repli sur le français) */
+function projName(p) {
+  return (currentLang === 'en' && p.name_en) ? p.name_en : p.name;
+}
+
 /** Crée la carte HTML d'un projet */
 function createCard(p, label) {
   const card = document.createElement('div');
   card.className = 'project-card';
   card.innerHTML = `
     <div class="project-img-wrap">
-      <img class="project-img" src="${p.src}" alt="${p.name}" loading="lazy">
+      <img class="project-img" src="${p.src}" alt="${projName(p)}" loading="lazy">
       <div class="project-label">${label}</div>
     </div>
     <div class="project-info">
-      <div class="project-name">${p.name}</div>
+      <div class="project-name">${projName(p)}</div>
       <div class="project-meta">AHOUANDJINOU Asaph</div>
     </div>
   `;
-  card.addEventListener('click', () => openLightbox(p.src, p.name));
+  card.addEventListener('click', () => openLightbox(p.src, projName(p)));
   return card;
 }
 
@@ -97,7 +103,9 @@ function renderGrids() {
     const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = '';
-    (projects[key] || []).forEach(p => {
+    (projects[key] || [])
+      .filter(p => key !== 'rendus' || currentCat === 'all' || p.cat === currentCat)
+      .forEach(p => {
       grid.appendChild(createCard(p, label));
     });
   });
@@ -157,27 +165,74 @@ function initReveal() {
 
 /* ── Formulaire de contact ────────────────────────────────── */
 
-function sendMsg() {
+/**
+ * Envoi via Web3Forms (service gratuit, compatible GitHub Pages).
+ * 1. Va sur https://web3forms.com et saisis asaphahouandjinou@gmail.com
+ * 2. Copie la clé d'accès reçue par email et colle-la ci-dessous.
+ * Tant que la clé n'est pas renseignée, le bouton ouvre ta messagerie
+ * (mailto:) avec le message déjà rempli.
+ */
+const WEB3FORMS_KEY = 'c0079740-778b-492b-8f0f-c11b89477ed4';
+const CONTACT_EMAIL = 'asaphahouandjinou@gmail.com';
+
+async function sendMsg() {
   const name  = document.getElementById('fname')?.value?.trim();
   const email = document.getElementById('femail')?.value?.trim();
   const msg   = document.getElementById('fmsg')?.value?.trim();
+  const fr    = currentLang === 'fr';
+  const btn   = document.querySelector('.form-btn');
 
   if (!name || !email || !msg) {
-    const warn = currentLang === 'fr'
-      ? 'Veuillez remplir tous les champs.'
-      : 'Please fill in all fields.';
-    alert(warn);
+    alert(fr ? 'Veuillez remplir tous les champs.' : 'Please fill in all fields.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert(fr ? 'Adresse email invalide.' : 'Invalid email address.');
     return;
   }
 
-  const confirm = currentLang === 'fr'
-    ? `Merci ${name} ! Votre message a bien été envoyé.`
-    : `Thank you ${name}! Your message has been sent.`;
-  alert(confirm);
+  const reset = () => {
+    document.getElementById('fname').value  = '';
+    document.getElementById('femail').value = '';
+    document.getElementById('fmsg').value   = '';
+  };
 
-  document.getElementById('fname').value  = '';
-  document.getElementById('femail').value = '';
-  document.getElementById('fmsg').value   = '';
+  /* Clé absente : repli sur la messagerie de l'utilisateur */
+  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === 'COLLE_TA_CLE_ICI') {
+    const subject = encodeURIComponent((fr ? 'Message du portfolio — ' : 'Portfolio message — ') + name);
+    const body    = encodeURIComponent(`${msg}\n\n${name} (${email})`);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    return;
+  }
+
+  const label = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = fr ? 'Envoi…' : 'Sending…'; }
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject:    'Nouveau message depuis le portfolio — ' + name,
+        from_name:  name,
+        name, email, message: msg,
+      }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      alert(fr ? `Merci ${name} ! Votre message a bien été envoyé.`
+               : `Thank you ${name}! Your message has been sent.`);
+      reset();
+    } else {
+      throw new Error(data.message || 'Erreur');
+    }
+  } catch (err) {
+    alert(fr ? `L'envoi a échoué. Écrivez-moi directement à ${CONTACT_EMAIL}.`
+             : `Sending failed. Please email me directly at ${CONTACT_EMAIL}.`);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = label; }
+  }
 }
 
 /* ── Init ─────────────────────────────────────────────────── */
@@ -198,6 +253,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Scroll reveal */
   initReveal();
+
+  /* Filtres de catégorie (Rendus 3D) */
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentCat = btn.getAttribute('data-cat');
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b === btn));
+      renderGrids();
+    });
+  });
 
   /* Onglets — attacher les listeners */
   document.querySelectorAll('.tab-btn').forEach(btn => {
